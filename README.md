@@ -130,7 +130,7 @@ Final_Git/
 ├── database/                   # 데이터베이스 설정
 │   ├── docker/                # Docker 구성
 │   ├── docs/                  # API 문서
-│   └── util_scripts/          # 유틸리티 스크립트
+│   └── util_sctips/           # 유틸리티 스크립트
 └── docker-compose.yml         # Docker Compose 설정
 ```
 ---
@@ -153,103 +153,17 @@ Final_Git/
 - **Client Agent**: 거래처 데이터 분석 및 보고서 생성
 - **Employee Agent**: 직원 성과 데이터 조회 및 분석
 - **Search Agent**: 하이브리드 검색 (키워드 + 벡터)
+
 ---
-### API 구조
-- **Agent Server (8000)**: 에이전트 API 제공
-  - `/api/router/chat`: 메인 챗봇 엔드포인트
-  - `/api/docs/*`: 문서 생성 API
-  - `/api/client/*`: 거래처 분석 API
-  - `/api/employee/*`: 직원 관리 API
----
-- **Database API (8010)**: 데이터베이스 및 인프라 API
-  - 사용자 인증/권한 관리
-  - 문서 저장 및 검색
-  - 대화 히스토리 관리
----
-## 설치 및 실행
+## 더 알아보기
+- [전체 아키텍처 개요](PROJECT_ARCHITECTURE.md)
+- [백엔드 상세](backend/BACKEND_ARCHITECTURE.md)
+- [API 엔드포인트 목록](backend/app/README.md)
+- [프론트엔드 상세](frontend/src/FRONTEND_ARCHITECTURE.md)
+- [Router Agent 상세](backend/app/services/router_agent/README.md)
+- [Search Agent 상세](backend/app/services/search_agent/SEARCH_AGENT_ARCHITECTURE.md)
+- [Database API 명세 인덱스](database/docs/API_SPECS/README.md)
 
-### 사전 요구사항
-- Docker & Docker Compose
-- Node.js 18+ (개발 모드)
-- Python 3.11+ (개발 모드)
-
-### 환경 변수 설정
-`.env` 파일 생성:
-```bash
-# OpenAI
-OPENAI_API_KEY=your_api_key
-
-# Database
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=your_password
-POSTGRES_DB=narutalk
-POSTGRES_HOST=postgres
-POSTGRES_PORT=5432
-
-# MinIO
-MINIO_ROOT_USER=minioadmin
-MINIO_ROOT_PASSWORD=minioadmin
-MINIO_ENDPOINT=minio:9000
-MINIO_BUCKET_NAME=narutalk
-
-# OpenSearch
-OPENSEARCH_HOST=opensearch-node1
-OPENSEARCH_PORT=9200
-OPENSEARCH_INITIAL_ADMIN_PASSWORD=your_password
-
-# JWT
-JWT_SECRET_KEY=your_secret_key
-
-# PgAdmin
-PGADMIN_EMAIL=admin@example.com
-PGADMIN_PASSWORD=admin
-```
-
-### Docker Compose 실행
-```bash
-# 데이터베이스 서비스 실행
-cd database/docker
-docker-compose up -d
-
-# 메인 애플리케이션 실행
-cd ../..
-docker-compose up -d
-```
-
-### 접속 URL
-- Frontend: http://localhost:3000
-- Agent API: http://localhost:8000/docs
-- Database API: http://localhost:8010/docs
-- PgAdmin: http://localhost:5050
-- MinIO Console: http://localhost:9001
-- OpenSearch Dashboard: http://localhost:5601
-
-## 개발 가이드
-
-### 백엔드 개발
-```bash
-cd backend
-pip install -r requirements.txt
-python app/agent_server.py
-```
-
-### 프론트엔드 개발
-```bash
-cd frontend
-npm install
-npm start
-```
-
-### 테스트 실행
-```bash
-# Backend 테스트
-cd backend
-pytest
-
-# Frontend 테스트
-cd frontend
-npm test
-```
 ---
 ## 1팀 최종프로젝트 회고록
 

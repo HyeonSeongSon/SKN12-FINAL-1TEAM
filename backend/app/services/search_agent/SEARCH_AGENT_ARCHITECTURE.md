@@ -2,7 +2,7 @@
 
 ## 📋 개요
 
-Search Agent는 사용자의 자연어 검색 쿼리를 처리하는 LLM 기반 검색 시스템입니다. 프론트엔드 채팅 인터페이스에서 자동으로 호출되며, 데이터베이스와 문서를 동시에 검색하여 통합된 응답을 제공합니다.
+Search Agent는 사용자의 자연어 검색 쿼리를 처리하는 LLM 기반 검색 시스템입니다. 프론트엔드 채팅 인터페이스에서 자동으로 호출되며, 데이터베이스와 문서를 동시에 검색하여 통합된 응답을 제공합니다. (아래 "Router Agent"는 오케스트레이터 역할로, 전문 에이전트와는 구분됩니다.)
 
 ## 🏗️ 전체 시스템 아키텍처
 
@@ -88,7 +88,7 @@ self.agents_config = {
 
 ### 4. Search Agent 실행 트리거
 
-Router가 search_agent를 선택하면:
+Router Agent가 search_agent를 선택하면:
 
 ```python
 # backend/app/services/router_agent/router.py
@@ -237,7 +237,7 @@ Router Agent는 다음 경우에 Search Agent를 선택:
 
 ### 1. 완전 자동화
 - 사용자는 자연어로 질문만 입력
-- Router → Search Agent → 도구 선택이 모두 자동
+- Router Agent → Search Agent → 도구 선택이 모두 자동
 
 ### 2. LLM 기반 지능
 - GPT-4가 쿼리 의도 정확히 파악
