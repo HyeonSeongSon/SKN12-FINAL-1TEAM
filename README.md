@@ -17,6 +17,10 @@
 </td>
 </tr>
 
+---
+## 🎬 시연 영상
+[![시연 영상](https://img.youtube.com/vi/MfUpIeqSV9g/0.jpg)](https://youtu.be/MfUpIeqSV9g)
+
 --- 
 ## I. 프로젝트 주제 - RAG 기반의 QA챗봇 개발</br></br>
 1. 제약영업 업무 효율성 강화를 위한 RAG 기반 문서검색 QA 챗봇 </br>
